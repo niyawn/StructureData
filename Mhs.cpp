@@ -75,6 +75,56 @@ void printList(student* &first) {
     }
 }
 
+void menu(student* &first) {
+    string nim, name; 
+    float presentaseKehadiran;
+    while (true) {
+        system("cls");
+        printList(first);
+        cout << "Menu:" << endl;
+        cout << "1. Insert First" << endl;
+        cout << "2. Insert Last" << endl;
+        cout << "3. Delete First" << endl;
+        cout << "4. Delete Last" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Choose an option: ";
+        int choice;
+        cin >> choice;
+        cin.ignore();
+
+        switch (choice) {
+            case 1:
+                cout << "Enter Name: ";
+                getline(cin, name);
+                cout << "Enter NIM: ";
+                cin >> nim;
+                cout << "Enter presentaseKehadiran: ";
+                cin >> presentaseKehadiran;
+                insertFirst(first, createStudent(nim, name, presentaseKehadiran));
+                break;
+            case 2:
+                cout << "Enter Name: ";
+                getline(cin, name);
+                cout << "Enter NIM: ";
+                cin >> nim;
+                cout << "Enter presentaseKehadiran: ";
+                cin >> presentaseKehadiran;
+                insertLast(first, createStudent(nim, name, presentaseKehadiran));
+                break;
+            case 3:
+                deleteFirst(first);
+                break;
+            case 4:
+                deleteLast(first);
+                break;
+            case 5:
+                return;
+            default:
+                cout << "Invalid option. Please try again." << endl;
+        }
+    }
+}
+
 int main() {
     student* first = nullptr;
 
