@@ -22,6 +22,18 @@ void insertFirst(student* &first, student* newstudent) {
     first = newstudent;
 }
 
+void insertLast(student* &first, student* newstudent) {
+    if (first == nullptr) {
+        first = newstudent;
+    } else {
+        student* current = first;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = newstudent;
+    }
+}
+
 int main() {
     student* first = nullptr;
 
