@@ -34,6 +34,32 @@ void insertLast(student* &first, student* newstudent) {
     }
 }
 
+void deleteFirst(student* &first) {
+    if (first == nullptr) {
+        cout << "List is empty" << endl;
+        return;
+    }
+    student* current = first;
+    first = current->next;
+    delete current;
+}
+
+void deleteLast(student* &first) {
+    if (first == nullptr){
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (first->next == nullptr) {
+        delete first;
+    }
+    student* current = first;
+    while (current->next->next != nullptr) {
+        current = current-> next;
+    }
+    delete current->next;
+    current->next = nullptr;
+}
+
 int main() {
     student* first = nullptr;
 
