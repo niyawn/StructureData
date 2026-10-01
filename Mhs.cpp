@@ -17,6 +17,11 @@ student* createStudent(string nim, string name, float presentaseKehadiran) {
     return newstudent;
 }
 
+void insertFirst(student* &first, student* newstudent) {
+    newstudent->next = first;
+    first = newstudent;
+}
+
 int main() {
     student* first = nullptr;
 
