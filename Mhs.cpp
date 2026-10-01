@@ -35,10 +35,10 @@ void insertLast(student* &first, student* newstudent) {
 }
 
 void deleteFirst(student* &first) {
-    if (first == nullptr) {
-        cout << "List is empty" << endl;
+    if (first == nullptr) { 
+        cout << "List is empty" << endl; 
         return;
-    }
+    }  
     student* current = first;
     first = current->next;
     delete current;
@@ -58,6 +58,21 @@ void deleteLast(student* &first) {
     }
     delete current->next;
     current->next = nullptr;
+}
+
+void printList(student* &first) {
+    if (first == nullptr) {
+        cout << "List is empty." << endl;
+        return;
+    }
+
+    student* current = first;
+    while (current != nullptr) {
+        cout << "NIM      : "           << current->nim << endl;
+        cout << "Name     : "            << current->name << endl;
+        cout << "presentaseKehadiran : " << current->presentaseKehadiran << endl;
+        current = current->next;
+    }
 }
 
 int main() {
